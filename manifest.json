@@ -1,0 +1,10 @@
+{
+  "name": "Stonic Access — Control Center",
+  "short_name": "Stonic Access",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#05070a",
+  "theme_color": "#05070a",
+  "icons": []
+}

@@ -7,6 +7,14 @@ function makeKey() {
   return `STONIC-${part()}-${part()}-${part()}`;
 }
 
+function store() {
+  return getStore({
+    name: "licenses",
+    siteID: process.env.NETLIFY_SITE_ID,
+    token: process.env.BLOBS_TOKEN,
+  });
+}
+
 exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body || "{}");
@@ -16,26 +24,26 @@ exports.handler = async (event) => {
       return { statusCode: 200, body: JSON.stringify({ success: false, message: "Invalid password" }) };
     }
 
-    const store = getStore("licenses");
+    const s = store();
 
     if (action === "list") {
-      const { blobs } = await store.list();
-      const data = await Promise.all(blobs.map(async (b) => await store.get(b.key, { type: "json" })));
+      const { blobs } = await s.list();
+      const data = await Promise.all(blobs.map(async (b) => await s.get(b.key, { type: "json" })));
       return { statusCode: 200, body: JSON.stringify({ success: true, data: data.filter(Boolean) }) };
     }
 
     if (action === "create") {
       const key = makeKey();
       const record = { id: key, license_key: key, status: "active", machine_fingerprint: null, activated_at: null, created_at: new Date().toISOString() };
-      await store.setJSON(key, record);
+      await s.setJSON(key, record);
       return { statusCode: 200, body: JSON.stringify({ success: true, key }) };
     }
 
     if (action === "revoke") {
-      const existing = await store.get(license_id, { type: "json" });
+      const existing = await s.get(license_id, { type: "json" });
       if (existing) {
         existing.status = "revoked";
-        await store.setJSON(license_id, existing);
+        await s.setJSON(license_id, existing);
       }
       return { statusCode: 200, body: JSON.stringify({ success: true }) };
     }

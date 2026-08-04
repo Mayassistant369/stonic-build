@@ -1,6 +1,6 @@
 {
   "packageId": "com.stonic.access",
-  "host": "neon-haupia-affbcf.netlify.app",
+  "host": "superb-monstera-b1d5ab.netlify.app",
   "name": "Stonic Access — Control Center",
   "launcherName": "Stonic",
   "display": "standalone",
@@ -13,8 +13,8 @@
   "backgroundColor": "#05070A",
   "enableNotifications": true,
   "startUrl": "/",
-  "iconUrl": "https://neon-haupia-affbcf.netlify.app/assets/icon-512.png",
-  "maskableIconUrl": "https://neon-haupia-affbcf.netlify.app/assets/icon-512.png",
+  "iconUrl": "https://superb-monstera-b1d5ab.netlify.app/assets/icon-512.png",
+  "maskableIconUrl": "https://superb-monstera-b1d5ab.netlify.app/assets/icon-512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "/workspaces/stonic-build/android.keystore",
@@ -24,7 +24,7 @@
   "appVersionCode": 1,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "https://neon-haupia-affbcf.netlify.app/manifest.json",
+  "webManifestUrl": "https://superb-monstera-b1d5ab.netlify.app/manifest.json",
   "fallbackType": "customtabs",
   "features": {},
   "alphaDependencies": {
@@ -33,7 +33,7 @@
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "isMetaQuest": false,
-  "fullScopeUrl": "https://neon-haupia-affbcf.netlify.app/",
+  "fullScopeUrl": "https://superb-monstera-b1d5ab.netlify.app/",
   "minSdkVersion": 21,
   "orientation": "any",
   "fingerprints": [],
